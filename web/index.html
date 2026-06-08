@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>看懂核心600股票池</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="回到顶部">
+        <span class="brand-mark">600</span>
+        <span>看懂核心股票池</span>
+      </a>
+      <nav class="nav" aria-label="页面导航">
+        <a href="./dashboard.html">仪表盘</a>
+        <a href="#idea">核心意思</a>
+        <a href="#assets">核心资产</a>
+        <a href="#steps">怎么筛</a>
+        <a href="#words">术语</a>
+        <a href="#roadmap">进度</a>
+      </nav>
+      <div class="tools" aria-label="阅读设置">
+        <button id="fontToggle" type="button" aria-pressed="false">大字</button>
+        <button id="contrastToggle" type="button" aria-pressed="false">护眼</button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">给普通投资学习者的量化入门</p>
+          <h1 id="hero-title">核心600不是荐股名单，是一套选股前的“体检流程”。</h1>
+          <p class="hero-text">
+            目标不是追热点，而是从几千只A股里，先找出更可能代表中国经济核心资产的候选公司：
+            能赚钱、能活久、风险可查、价格不过分离谱。
+          </p>
+          <div class="hero-actions">
+            <a class="primary-action" href="#assets">先看核心资产</a>
+            <a class="secondary-action" href="#words">先看术语</a>
+          </div>
+        </div>
+        <figure class="hero-visual">
+          <img src="./assets/core600-learning.svg" alt="学习者理解核心600流程：先排雷、再打分、行业平衡、可复查" />
+        </figure>
+      </section>
+
+      <section id="idea" class="band intro-band" aria-labelledby="idea-title">
+        <div class="section-head">
+          <p class="eyebrow">先抓住一句话</p>
+          <h2 id="idea-title">它解决的是“哪些公司值得继续研究”。</h2>
+        </div>
+        <div class="plain-grid">
+          <article>
+            <h3>不是直接买</h3>
+            <p>核心600只是候选池。进入候选池，意思是“可以继续研究”，不是“马上买入”。</p>
+          </article>
+          <article>
+            <h3>不是凭感觉</h3>
+            <p>每个判断都要有数据来源、日期和理由，不能用印象凑出600只。</p>
+          </article>
+          <article>
+            <h3>不是只看涨幅</h3>
+            <p>短期涨得多不等于公司好。系统会同时看财务、估值、趋势和风险。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="assets" class="band asset-band" aria-labelledby="assets-title">
+        <div class="section-head">
+          <p class="eyebrow">第一性原理</p>
+          <h2 id="assets-title">核心资产首先是“好生意”，其次才是“好股票”。</h2>
+          <p>
+            股票背后是公司。真正值得长期研究的公司，通常不是因为一两天涨得快，
+            而是因为它长期能创造现金流、能穿越周期，并且风险足够透明。
+          </p>
+        </div>
+        <div class="asset-grid">
+          <article>
+            <span class="asset-tag">现金流</span>
+            <h3>能持续赚钱</h3>
+            <p>收入和利润不是偶然爆发，经营现金流能跟上利润，说明钱更可能是真的进来了。</p>
+          </article>
+          <article>
+            <span class="asset-tag">护城河</span>
+            <h3>有稳定位置</h3>
+            <p>品牌、渠道、技术、成本、牌照或规模优势，让公司不容易被同行快速替代。</p>
+          </article>
+          <article>
+            <span class="asset-tag">稳健</span>
+            <h3>不轻易出大雷</h3>
+            <p>负债、审计意见、停牌、退市风险、数据缺失都要检查。看不清，就先不碰。</p>
+          </article>
+          <article>
+            <span class="asset-tag">价格</span>
+            <h3>好公司也要看价格</h3>
+            <p>再好的公司，如果价格过度透支未来，长期回报也可能不好。</p>
+          </article>
+        </div>
+        <div class="principle-callout">
+          <strong>一句话判断：</strong>
+          核心600要找的是“长期值得研究的候选资产”，不是“今天最热的600只股票”。
+        </div>
+      </section>
+
+      <section id="steps" class="band" aria-labelledby="steps-title">
+        <div class="section-head">
+          <p class="eyebrow">三步看懂</p>
+          <h2 id="steps-title">先守住生存，再比较质量，最后控制集中风险。</h2>
+        </div>
+        <div class="step-list">
+          <article class="step-item">
+            <div class="step-number">1</div>
+            <div>
+              <h3>先排雷</h3>
+              <p>ST、退市风险、长期停牌、关键财务数据缺失、上市时间太短，都先放到一边。</p>
+              <p class="note">拿不到风险资料时，标记“待核查”，不能当作没风险。</p>
+            </div>
+          </article>
+          <article class="step-item">
+            <div class="step-number">2</div>
+            <div>
+              <h3>再打分</h3>
+              <p>质量、成长、估值、动量、低波动与流动性五类一起看，不让一个指标说了算。</p>
+              <div class="score-bars" aria-label="因子权重">
+                <span style="--w: 30%">质量 30%</span>
+                <span style="--w: 20%">成长 20%</span>
+                <span style="--w: 15%">估值 15%</span>
+                <span style="--w: 20%">趋势 20%</span>
+                <span style="--w: 15%">低波 15%</span>
+              </div>
+            </div>
+          </article>
+          <article class="step-item">
+            <div class="step-number">3</div>
+            <div>
+              <h3>行业要平衡</h3>
+              <p>核心资产分布在不同产业里。不能全是电子、机械或热门行业，避免一阵风把池子带偏。</p>
+              <p class="note">600 × 15% = 90，这是行业上限的直观算法。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="band lens-band" aria-labelledby="lens-title">
+        <div class="section-head">
+          <p class="eyebrow">五个观察镜头</p>
+          <h2 id="lens-title">每只候选股票，都要回答五个朴素问题。</h2>
+        </div>
+        <div class="lens-table" role="table" aria-label="核心资产观察问题">
+          <div role="row">
+            <strong role="cell">质量</strong>
+            <span role="cell">这家公司赚的钱质量高不高？现金流能不能支撑利润？</span>
+          </div>
+          <div role="row">
+            <strong role="cell">成长</strong>
+            <span role="cell">增长是长期趋势，还是一次性低基数造成的好看数字？</span>
+          </div>
+          <div role="row">
+            <strong role="cell">估值</strong>
+            <span role="cell">现在的价格有没有把好消息提前算得太满？</span>
+          </div>
+          <div role="row">
+            <strong role="cell">趋势</strong>
+            <span role="cell">市场是否在中期认可它，而不是只看一个月的热闹？</span>
+          </div>
+          <div role="row">
+            <strong role="cell">风险</strong>
+            <span role="cell">有没有退市、审计、停牌、财务恶化或数据缺失的问题？</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="band soft" aria-labelledby="output-title">
+        <div class="section-head">
+          <p class="eyebrow">最后输出什么</p>
+          <h2 id="output-title">真正有价值的不是600这个数字，而是每只股票背后的理由。</h2>
+        </div>
+        <div class="output-panel">
+          <div>
+            <h3>候选名单</h3>
+            <p>股票代码、名称、行业、综合得分、行业内排名。</p>
+          </div>
+          <div>
+            <h3>原始证据</h3>
+            <p>质量、成长、估值、趋势、波动、流动性的原始数据和标准化分数。</p>
+          </div>
+          <div>
+            <h3>纳入或排除原因</h3>
+            <p>为什么进入、为什么没进、哪些风险还需要人工复核。</p>
+          </div>
+          <div>
+            <h3>数据质量报告</h3>
+            <p>缺失率、异常值、公告日期、是否存在未来数据风险。</p>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="band soft" aria-labelledby="remember-title">
+        <div class="section-head">
+          <p class="eyebrow">最容易踩的坑</p>
+          <h2 id="remember-title">只要记住这四条，就已经超过很多“看热闹”的选股方法。</h2>
+        </div>
+        <div class="warning-grid">
+          <article>
+            <h3>不能偷看后来的答案</h3>
+            <p>回头测试过去的选股结果时，只能用当时已经公开的信息，不能用后来才公布的财报。</p>
+          </article>
+          <article>
+            <h3>不能只看还活着的公司</h3>
+            <p>历史回测要包含后来退市的股票，否则结果会显得过分好看。</p>
+          </article>
+          <article>
+            <h3>不能把负PE当便宜</h3>
+            <p>亏损公司的PE可能是负数，但这不代表估值低。</p>
+          </article>
+          <article>
+            <h3>不能缺数据就填0</h3>
+            <p>关键财务数据缺失，要报告缺失，不能静悄悄补成0。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="words" class="band" aria-labelledby="words-title">
+        <div class="section-head">
+          <p class="eyebrow">常见术语</p>
+          <h2 id="words-title">把专业词翻译成人话。</h2>
+        </div>
+        <div class="glossary">
+          <details open>
+            <summary>因子</summary>
+            <p>就是评价股票的一个角度。比如赚钱能力、增长速度、价格贵不贵、最近趋势稳不稳。</p>
+          </details>
+          <details>
+            <summary>估值</summary>
+            <p>看一家公司现在的价格相对它的利润、资产、收入是不是合理。便宜不一定好，贵也不一定坏。</p>
+          </details>
+          <details>
+            <summary>动量</summary>
+            <p>看股票中期走势是否比同行更强。这里不追一个月暴涨，而是看更稳的中期趋势。</p>
+          </details>
+          <details>
+            <summary>未来函数</summary>
+            <p>就是回头测试过去时，偷用了当时还没公开的信息。这样结果会显得很好，但现实中做不到。</p>
+          </details>
+          <details>
+            <summary>幸存者偏差</summary>
+            <p>只看现在还在上市的公司，忘了历史上失败和退市的公司，会让测试结果虚高。</p>
+          </details>
+          <details>
+            <summary>核心资产</summary>
+            <p>长期能创造价值、风险相对可查、在行业里有稳定位置的公司。它仍然可能下跌，所以不能等同于“稳赚”。</p>
+          </details>
+        </div>
+      </section>
+
+      <section id="roadmap" class="band roadmap" aria-labelledby="roadmap-title">
+        <div class="section-head">
+          <p class="eyebrow">当前工程进度</p>
+          <h2 id="roadmap-title">现在还在第一阶段：先搭好可信的地基。</h2>
+        </div>
+        <ol class="timeline">
+          <li class="done">
+            <strong>工程骨架</strong>
+            <span>已完成：配置、测试、数据源接口、防未来函数规则。</span>
+          </li>
+          <li>
+            <strong>基础数据</strong>
+            <span>已接通免费公开数据：股票基础信息、交易日历、行情、估值、交易状态和 ST 标记。</span>
+          </li>
+          <li>
+            <strong>排除规则</strong>
+            <span>下一步：用行情特征建立 ST、停牌、流动性不足、波动过高等初步排除规则。</span>
+          </li>
+          <li>
+            <strong>因子评分</strong>
+            <span>等字段确认后再实现公式，不能猜。</span>
+          </li>
+          <li>
+            <strong>生成600</strong>
+            <span>已生成基本面增强版600候选池；财报公告日期已接入，审计意见和治理风险仍待补强。</span>
+          </li>
+        </ol>
+      </section>
+
+      <section class="band data-band" aria-labelledby="data-title">
+        <div class="section-head">
+          <p class="eyebrow">数据路线</p>
+          <h2 id="data-title">先用免费公开数据做学习版，再按需要升级数据质量。</h2>
+        </div>
+        <div class="data-route">
+          <article>
+            <h3>免费公开数据</h3>
+            <p>BaoStock、AKShare 等公开数据源适合学习和研究。好处是成本低，能先把流程跑通。</p>
+          </article>
+          <article>
+            <h3>风险要打标</h3>
+            <p>免费数据暂时覆盖不到的审计意见、公告细节、行业口径，要标记为“待核查”，不能默认安全。</p>
+          </article>
+          <article>
+            <h3>以后可升级</h3>
+            <p>如果要做更严肃的研究，再接 Tushare、Choice、Wind 或其他商业数据，替换数据源即可。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>这是一套学习和研究流程，不构成投资建议。任何股票进入候选池，都不等于应该买入。</p>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

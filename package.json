@@ -1,0 +1,12 @@
+{
+  "name": "core600-learning-site",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A static learning site explaining the A-share Core 600 candidate universe workflow.",
+  "scripts": {
+    "build:data": "node scripts/build-dashboard-data.js",
+    "build": "npm run build:data && node scripts/build-site.js",
+    "preview": "node scripts/preview-site.js"
+  },
+  "devDependencies": {}
+}

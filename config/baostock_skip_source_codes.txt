@@ -1,0 +1,5 @@
+# BaoStock daily history queries that timed out during full-universe download.
+# Keep source_code values here; metadata records these skipped codes.
+sh.688080
+sh.688183
+sh.688220

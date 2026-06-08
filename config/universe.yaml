@@ -1,0 +1,25 @@
+universe:
+  included_exchanges:
+    - SSE
+    - SZSE
+  included_boards:
+    - main
+    - chi_next
+    - star
+  excluded_boards:
+    - bse
+  minimum_listing_trading_days: 250
+  include_delisted_for_history: true
+  require_as_of_date: true
+
+hard_exclusions:
+  exclude_st: true
+  exclude_star_st: true
+  exclude_delisting_period: true
+  minimum_recent_trading_days_window: 60
+  minimum_recent_valid_trading_days: null # TODO: confirm threshold.
+  minimum_recent_average_turnover: null # TODO: confirm amount and currency.
+  exclude_negative_net_assets: true
+  exclude_long_suspension: true
+  exclude_non_standard_audit_opinion: true
+  risk_check_pending_when_missing: true

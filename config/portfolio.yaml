@@ -1,0 +1,16 @@
+selection:
+  target_size: 600
+  minimum_per_industry: 5
+  maximum_industry_weight: 0.15
+  ranking_key: composite_score
+  deterministic_tie_breakers:
+    - industry_rank
+    - ts_code
+
+industry_allocation:
+  method: eligible_count_free_float_market_cap_and_liquidity
+  inputs:
+    - eligible_company_count
+    - free_float_market_cap
+    - trading_activity
+  TODO: confirm allocation weights before implementation.

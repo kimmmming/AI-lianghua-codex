@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>核心600可视化仪表盘</title>
+    <link rel="stylesheet" href="./dashboard.css" />
+  </head>
+  <body>
+    <header class="shell-header">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark">600</span>
+        <span>核心资产仪表盘</span>
+      </a>
+      <nav class="nav" aria-label="页面导航">
+        <a href="./index.html">学习页</a>
+        <a href="#overview">总览</a>
+        <a href="#industries">行业</a>
+        <a href="#companies">公司</a>
+      </nav>
+      <button id="densityToggle" type="button" aria-pressed="false">大字</button>
+    </header>
+
+    <main>
+      <section id="overview" class="hero">
+        <div>
+          <p class="eyebrow">Fundamental Proxy V1</p>
+          <h1>从 5207 只当前上市 A 股里，筛出 600 只核心资产候选。</h1>
+          <p class="lead">
+            这版已经接入行情、流动性、波动、估值代理、行业约束和带公告日期过滤的财务指标。
+            它用于研究候选池，不构成投资建议。
+          </p>
+          <div class="hero-points" aria-label="阅读提示">
+            <span>先看行业是否集中</span>
+            <span>再看公司得分来源</span>
+            <span>最后看方法边界</span>
+          </div>
+        </div>
+        <aside class="status-panel">
+          <span>基准日</span>
+          <strong id="asOfDate">-</strong>
+          <small id="version">-</small>
+        </aside>
+      </section>
+
+      <section class="proof-strip" aria-label="当前版本的数据纪律">
+        <article>
+          <strong>公告日期过滤</strong>
+          <span>财务数据只使用基准日前已公开记录</span>
+        </article>
+        <article>
+          <strong>ST排除</strong>
+          <span>近60日出现ST的股票不进入候选池</span>
+        </article>
+        <article>
+          <strong>行业上限</strong>
+          <span>单一行业最多90只，避免过度集中</span>
+        </article>
+        <article>
+          <strong>可追溯输出</strong>
+          <span>保留得分、排除原因和方法边界</span>
+        </article>
+      </section>
+
+      <section class="kpi-grid" aria-label="核心指标">
+        <article>
+          <span>候选股票</span>
+          <strong id="selectedCount">-</strong>
+          <small>目标池规模</small>
+        </article>
+        <article>
+          <span>排除记录</span>
+          <strong id="excludedCount">-</strong>
+          <small>风险或数据不足</small>
+        </article>
+        <article>
+          <span>覆盖行业</span>
+          <strong id="industryCount">-</strong>
+          <small>防止单一行业过热</small>
+        </article>
+        <article>
+          <span>最高行业占比</span>
+          <strong id="maxIndustry">-</strong>
+          <small>上限控制目标：90只</small>
+        </article>
+      </section>
+
+      <section class="panel-grid">
+        <article id="industries" class="panel large">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">行业分布</p>
+              <h2>哪些行业进入候选池最多？</h2>
+              <p class="panel-note">越靠前表示进入候选池的公司越多，但单一行业仍被上限约束。</p>
+            </div>
+            <span class="chip">Top 18</span>
+          </div>
+          <div id="industryBars" class="bars"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">排除原因</p>
+              <h2>哪些股票先放一边？</h2>
+              <p class="panel-note">这些不是永久否定，而是当前数据和规则下暂不纳入。</p>
+            </div>
+          </div>
+          <div id="exclusionBars" class="bars compact"></div>
+        </article>
+      </section>
+
+      <section class="panel-grid">
+        <article class="panel large">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">得分和成交额</p>
+              <h2>高分公司是否也有足够流动性？</h2>
+              <p class="panel-note">右上区域通常代表得分较高且成交更活跃，适合作为后续研究入口。</p>
+            </div>
+            <span class="chip">每个点一家公司</span>
+          </div>
+          <div class="legend" aria-label="散点图图例">
+            <span><i class="legend-dot positive"></i>6个月收益为正</span>
+            <span><i class="legend-dot negative"></i>6个月收益为负</span>
+          </div>
+          <canvas id="scatterCanvas" width="920" height="420" aria-label="成交额和综合得分散点图"></canvas>
+          <div id="chartTooltip" class="chart-tooltip" hidden></div>
+          <p id="scatterHint" class="hint">横轴是60日平均成交额，纵轴是基本面增强得分。</p>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">质量中位数</p>
+              <h2>池子整体质量概览</h2>
+            </div>
+          </div>
+          <dl class="metric-list">
+            <div><dt>得分中位数</dt><dd id="scoreMedian">-</dd></div>
+            <div><dt>得分90分位</dt><dd id="scoreP90">-</dd></div>
+            <div><dt>成交额中位数</dt><dd id="amountMedian">-</dd></div>
+            <div><dt>最晚公告日</dt><dd id="maxAnnouncement">-</dd></div>
+          </dl>
+        </article>
+      </section>
+
+      <section id="companies" class="panel table-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">候选公司</p>
+            <h2>核心600前80名</h2>
+            <p class="panel-note">筛选后仍显示原始综合排名，方便知道它在600只中的位置。</p>
+          </div>
+          <div class="controls-row">
+            <label class="search-box">
+              <span>行业</span>
+              <select id="industryFilter"></select>
+            </label>
+            <button id="resetFilters" type="button">重置</button>
+          </div>
+          <label class="search-box">
+            <span>搜索</span>
+            <input id="companySearch" type="search" placeholder="代码、名称、行业" />
+          </label>
+        </div>
+        <p id="tableStatus" class="hint"></p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>排名</th>
+                <th>代码</th>
+                <th>名称</th>
+                <th>行业</th>
+                <th>综合分</th>
+                <th>质量</th>
+                <th>成长</th>
+                <th>市场</th>
+                <th>6月收益</th>
+              </tr>
+            </thead>
+            <tbody id="companyRows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel limitations">
+        <p class="eyebrow">方法边界</p>
+        <h2>这不是荐股，也不是最终结论。</h2>
+        <p class="hint">进入候选池只代表“值得继续研究”，不代表买入建议。最终投资还需要结合仓位、风险承受能力和人工复核。</p>
+        <ul id="limitations"></ul>
+      </section>
+    </main>
+
+    <script src="./data/core600-dashboard-data.js"></script>
+    <script src="./dashboard.js"></script>
+  </body>
+</html>

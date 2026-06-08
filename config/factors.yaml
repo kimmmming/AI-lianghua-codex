@@ -1,0 +1,52 @@
+factor_groups:
+  quality:
+    weight: 0.30
+    factors:
+      - roe_ttm
+      - operating_cash_flow_to_net_profit
+      - gross_profit_to_total_assets
+      - net_margin
+      - leverage_or_solvency
+  growth:
+    weight: 0.20
+    factors:
+      - revenue_yoy
+      - adjusted_net_profit_yoy
+      - revenue_3y_cagr
+      - operating_cash_flow_3y_improvement
+  value:
+    weight: 0.15
+    factors:
+      - pe_ttm
+      - pb
+      - ps_ttm
+      - free_cash_flow_yield
+  momentum:
+    weight: 0.20
+    factors:
+      - return_12m_skip_1m
+      - return_6m
+      - industry_relative_return_6m
+      - distance_from_1y_high
+  low_volatility_liquidity:
+    weight: 0.15
+    factors:
+      - volatility_60d_annualized
+      - max_drawdown_120d
+      - average_turnover_60d
+      - valid_trading_ratio_60d
+
+normalization:
+  method: industry_percentile
+  winsorize: true
+  winsorize_limits:
+    lower: 0.01
+    upper: 0.99
+  score_scale:
+    min: 0
+    max: 100
+
+special_rules:
+  negative_pe_is_missing: true
+  financial_industries_use_separate_scoring: true
+  missing_critical_financial_data_policy: exclude_or_pending
