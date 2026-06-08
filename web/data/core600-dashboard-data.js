@@ -1,5 +1,5 @@
 window.CORE600_DASHBOARD_DATA = {
-  "generatedAt": "2026-06-07T15:11:56.504Z",
+  "generatedAt": "2026-06-08T01:16:33.243Z",
   "asOfDate": "2026-06-06",
   "version": "fundamental_proxy_v1",
   "summary": {
