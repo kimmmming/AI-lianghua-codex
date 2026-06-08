@@ -5,7 +5,7 @@
   "description": "A static learning site explaining the A-share Core 600 candidate universe workflow.",
   "scripts": {
     "build:data": "node scripts/build-dashboard-data.js",
-    "build": "npm run build:data && node scripts/build-site.js",
+    "build": "node scripts/build-site.js",
     "preview": "node scripts/preview-site.js"
   },
   "devDependencies": {}
